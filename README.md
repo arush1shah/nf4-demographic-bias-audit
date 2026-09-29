@@ -4,7 +4,7 @@ This repository accompanies **“Does NF4 Quantization Amplify Demographic Bias?
 
 ## Release status
 
-This is a **release candidate**. The notebook and benchmark are present and validated. Before making the repository public, the final model-output folders must be copied from Colab, a permanent repository URL or DOI must be inserted, and code/data licenses must be selected.
+This is a **release candidate**. The notebook and benchmark are present and validated. Before making the repository public, the final model-output folders must be copied from Colab and checked against the final paper.
 
 ## Repository contents
 
@@ -45,11 +45,3 @@ Automated validation found no critical structural failures. Six partial-input sh
 ## Third-party assets
 
 BBQ, CrowS-Pairs, and the COMPAS-derived source table are retrieved from their upstream projects by the notebook. They are not relicensed by this repository. Qwen checkpoints are accessed through Hugging Face. The OpenRouter analysis requires the user’s own API key; credentials must never be committed.
-
-## Data and code availability statement
-
-> Data and code supporting this study are available at **[PERMANENT REPOSITORY URL OR DOI]**. The repository contains the publication notebook, the Immigration Adjudication Bias Benchmark, item-level model predictions, run manifests, and statistical summary tables. Third-party benchmark data are not redistributed; the notebook retrieves them from their original sources. All figures can be regenerated from the released results and plotting code.
-
-## Citation and licensing
-
-Citation metadata are provided in `CITATION.cff`. Code and dataset licenses have not yet been assigned; see `LICENSES/README.md` before public release.

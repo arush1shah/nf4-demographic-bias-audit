@@ -77,7 +77,3 @@ The scenarios are synthetic and cover a limited set of demographic cues, domains
 ## Preprocessing in the publication notebook
 
 The notebook validates the row count, scenario count, variant set, label columns, and option syntax. It then generates every possible answer order for two- or three-option items and remaps displayed letters to semantic labels. The four-variant reported subset contains 220 source items and 1,320 answer-order presentations per model/precision condition.
-
-## Licensing
-
-A dataset license has not yet been selected. See `../LICENSES/README.md` before public release.

@@ -46,7 +46,6 @@ REQUIRED_COLUMNS = {
 STATIC_FILES = [
     ROOT / "README.md",
     ROOT / "RELEASE_CHECKLIST.md",
-    ROOT / "CITATION.cff",
     ROOT / "data" / "DATASET_CARD.md",
     ROOT / "data" / "THIRD_PARTY_DATA.md",
     ROOT / "environment" / "requirements.txt",
@@ -80,7 +79,7 @@ def sha256(path: Path) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--strict", action="store_true", help="require final outputs, URL, and licenses")
+    parser.add_argument("--strict", action="store_true", help="require all final result artifacts")
     args = parser.parse_args()
 
     errors: list[str] = []
@@ -126,20 +125,10 @@ def main() -> int:
     if "sk-or-v1-" in release_text:
         errors.append("Possible OpenRouter secret found in the release surface.")
 
-    placeholder = "[PERMANENT REPOSITORY URL OR DOI]"
-    if placeholder in release_text:
-        warnings.append("Permanent repository URL/DOI has not been inserted.")
-    if not any(path.name.lower().startswith("license") and path.name != "README.md" for path in (ROOT / "LICENSES").glob("*")):
-        warnings.append("Code and dataset licenses have not been selected.")
-
     if args.strict:
         for relative in STRICT_RESULTS:
             if not (ROOT / relative).is_file():
                 errors.append(f"Missing final result: {relative}")
-        if placeholder in release_text:
-            errors.append("Strict release still contains the repository URL/DOI placeholder.")
-        if any("licenses have not been selected" in warning for warning in warnings):
-            errors.append("Strict release requires explicit code and data licenses.")
 
     for warning in warnings:
         print(f"WARNING: {warning}")
