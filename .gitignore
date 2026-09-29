@@ -1,0 +1,28 @@
+# This repository lives beside the full research workspace. Ignore every
+# top-level item except the curated publication release below.
+/*
+!/.gitignore
+!/.gitattributes
+!/.github/
+!/README.md
+!/RELEASE_CHECKLIST.md
+!/notebooks/
+!/data/
+!/results/
+!/environment/
+!/figures/
+!/quality_control/
+!/scripts/
+
+# Only the release validator is part of the public scripts directory.
+/scripts/*
+!/scripts/validate_release.py
+
+# Never publish secrets or local runtime residue.
+**/.env
+**/.env.*
+**/*secret*
+**/*token*
+**/__pycache__/
+**/.DS_Store
+**/.ipynb_checkpoints/
